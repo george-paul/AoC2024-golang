@@ -1,14 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"AoC_2024/day01"
+	"AoC_2024/day02"
+)
 
 func main() {
-	day01()
-}
-
-func resultString(dayNum int, resultParts ...any) {
-	fmt.Printf("---Day %02d---\n", dayNum)
-	for idx, part := range resultParts {
-		fmt.Print("Part ", idx+1, ":   ", part, "\n")
-	}
+	day01.Day01Main()
+	day02.D02()
 }

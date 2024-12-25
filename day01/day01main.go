@@ -1,68 +1,25 @@
-package main
+package day01
 
 import (
-	"sort"
+	"AoC_2024/util"
 	"strconv"
 	"strings"
 )
 
-func day01() {
+func Day01Main() {
 	l1 := [1000]int{}
 	l2 := [1000]int{}
-	for idx, line := range strings.Split(day01Input, "\n") {
+	for idx, line := range strings.Split(d01Input, "\n") {
 		ns := strings.Split(line, "   ")
 		n1, _ := strconv.Atoi(ns[0])
 		n2, _ := strconv.Atoi(ns[1])
 		l1[idx] = n1
 		l2[idx] = n2
 	}
-	resultString(1, day01part01(l1, l2), day01part02(l1, l2))
+	util.ResultString(1, d01p01(l1, l2), d01p02(l1, l2))
 }
 
-func day01part01(l1 [1000]int, l2 [1000]int) int {
-	sort.Ints(l1[:])
-	sort.Ints(l2[:])
-
-	total := 0
-
-	for idx := range l1 {
-		total += intAbs(l1[idx] - l2[idx])
-	}
-
-	return total
-}
-
-func day01part02(l1 [1000]int, l2 [1000]int) int {
-	valMap := map[int]int{}
-
-	for _, val := range l1 {
-		valMap[val] = 0
-	}
-
-	for _, val := range l2 {
-		v, ok := valMap[val]
-		if ok {
-			valMap[val] = v + 1
-		}
-	}
-
-	total := 0
-	for key, val := range valMap {
-		total += key * val
-	}
-
-	return total
-}
-
-func intAbs(num int) int {
-	if num <= 0 {
-		return -num
-	} else {
-		return num
-	}
-}
-
-const day01Input = `87501   76559
+const d01Input = `87501   76559
 70867   16862
 12959   38527
 56898   81917
