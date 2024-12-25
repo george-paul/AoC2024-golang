@@ -1,7 +1,22 @@
 package day02
 
-func D02() {
-	d02p01()
+import (
+	"AoC_2024/util"
+	"strconv"
+	"strings"
+)
+
+func Day02Main() {
+	reports := [][]int{}
+	for lIdx, line := range strings.Split(d02input, "\n") {
+		reports = append(reports, make([]int, 0))
+		nums := strings.Split(line, " ")
+		for _, num := range nums {
+			intNum, _ := strconv.Atoi(num)
+			reports[lIdx] = append(reports[lIdx], intNum)
+		}
+	}
+	util.ResultString(2, d02p01(reports), d02p02(reports))
 }
 
 const d02input = `75 76 77 80 82 85 84
