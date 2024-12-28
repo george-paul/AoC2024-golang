@@ -62,7 +62,7 @@ func Day04Main() {
 		}
 	}
 
-	util.ResultString(4, d04p01(cells))
+	util.ResultString(4, d04p01(cells), d04p02(cells))
 }
 
 const dimH = 140 // input is 140 chars tall

@@ -59,6 +59,7 @@ func genPresList(cells Cells, rIdx int, cIdx int) (newPresList PresList, noYes i
 	return
 }
 
+// kinda overcomplicated this one
 func d04p01(cells Cells) int {
 	total := 0
 	for _, letter := range [4]uint8{2, 3, 4} {
