@@ -9,10 +9,10 @@ func getMiddleNumber(update []int) int {
 // returns false, a, b if update is not in order and orderings[a][b] was violated
 func checkUpdateOrder(orderings Orderings, update []int) (bool, int, int) {
 	beforeNums := []int{}
-	for _, num := range update {
-		for _, beforeNum := range beforeNums {
+	for nIdx, num := range update {
+		for bnIdx, beforeNum := range beforeNums {
 			if !orderings[beforeNum][num] {
-				return false, beforeNum, num
+				return false, bnIdx, nIdx
 			}
 		}
 		beforeNums = append(beforeNums, num)
