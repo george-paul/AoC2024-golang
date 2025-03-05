@@ -6,9 +6,9 @@ import (
 	"strings"
 )
 
-// corresponds to each direction (cul = const up left)
+// corresponds to each direction (eg cul = const up left)
 const (
-	cuu = iota
+	cuu = iota + 1
 	crr
 	cdd
 	cll
@@ -63,7 +63,7 @@ func Day06Main() {
 			grid[r][c] = runeToUint[char]
 		}
 	}
-	util.ResultString(6, d06p01(grid, begR, begC))
+	util.ResultString(6, d06p01(grid, begR, begC), d06p02(grid, begR, begC))
 }
 
 const puzzleInput = d06input
@@ -73,6 +73,17 @@ const puzzleInput = d06input
 
 const dimH = 130
 const dimW = 130
+
+const d06testinput = `....#.....
+.........#
+..........
+..#.......
+.......#..
+..........
+.#..^.....
+........#.
+#.........
+......#...`
 
 const d06input = `...........#....................#......#.....................#.#...........#......................................................
 .....................................#....#.................#...............................#.....................................

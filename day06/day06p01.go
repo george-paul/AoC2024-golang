@@ -1,11 +1,5 @@
 package day06
 
-// func isInBounds(r int, c int) bool {
-// 	rInBounds := (r >= 0) && (r < dimH)
-// 	cInBounds := (c >= 0) && (c < dimW)
-// 	return rInBounds && cInBounds
-// }
-
 func d06p01(grid Grid, begR int, begC int) int {
 	r := begR
 	c := begC
@@ -21,7 +15,7 @@ func d06p01(grid Grid, begR int, begC int) int {
 			break
 		}
 		if next == 1 {
-			curDir = (curDir + 1) % 4
+			curDir = (curDir % 4) + 1
 		} else {
 			if next != 3 {
 				grid[newR][newC] = 3
